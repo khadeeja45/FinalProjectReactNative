@@ -24,6 +24,7 @@
     "react-native": "~0.55.2",
     "react-native-communications": "^2.2.1",
     "react-native-elements": "^0.19.1",
-    "react-native-navigation": "^1.1.466"
+    "react-native-navigation": "^1.1.466",
+    "react-navigation": "^2.2.0"
   }
 }

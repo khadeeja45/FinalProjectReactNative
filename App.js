@@ -1,105 +1,42 @@
-import React, { Component } from "react";
-import { FlatList, StyleSheet, Text, View , TouchableOpacity } from "react-native";
-import {Card ,Button,Icon} from 'react-native-elements';
-import Communications from 'react-native-communications';
-export default class App extends Component {
- 
- 
- 
- 
+import React from 'react';
+import {View, StyleSheet,Image, Text, ScrollView,TouchableOpacity } from 'react-native';
+import {createStackNavigator,createTabNavigator,createDrawerNavigator} from 'react-navigation'
+import Splash from './components/splash'
+import Login from './components/login'
+//import Signup from './components/signup'
+import Front from './components/front'
+import Leave from './components/leave'
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Table from './components/table'
+
+const DrawerApp=createDrawerNavigator({
+  Front:{screen:Front},
+  Leave:{screen:Leave},
+  Table:{screen:Table},
+  
+}); 
+
+const StackApp=createStackNavigator({
+  Splash:{screen:Splash ,navigationOptions:{header:null}},
+ // Signup:{screen:Signup,navigationOptions:{header:null}},
+  Login:{screen:Login,navigationOptions:{header:null}},
+  
+  DrawerApp:{screen:DrawerApp}
+
+  
+}
+); 
+
+export default class App extends React.Component {
+
+
+  constructor(props){
+super(props);
+}
   render() {
     return (
-      <View style={styles.container}>
-      
-      <Card title="TIME TABLE">
-      <Text style={{marginBottom: 0, fontWeight:'bold'}}>
-    Monday
-  </Text>
-
-  <Text style={{marginBottom: 10}}>
-    Opening Time: 8:00 a.m
-    </Text>
-
-    <Text style={{marginBottom: 10}}>
-    Closing Time: 3:00 p.m
-    </Text>
-
-    <Text style={{marginTop: 20, fontWeight:'bold'}}>
-    Tuesday
-    </Text>
-
-    <Text style={{marginBottom: 10}}>
-    Opening Time: 8:00 a.m
-    </Text>
-
-    <Text style={{marginBottom: 10}}>
-    Closing Time: 3:00 p.m
-    </Text>
-
-    <Text style={{marginTop: 20, fontWeight:'bold'}}>
-    Wednesday
-    </Text>
-
-    <Text style={{marginBottom: 10}}>
-    Opening Time: 8:00 a.m
-    </Text>
-
-    <Text style={{marginBottom: 10}}>
-    Closing Time: 3:00 p.m
-    </Text>
-
-    <Text style={{marginTop: 20, fontWeight:'bold'}}>
-    Thursday
-    </Text>
-
-    <Text style={{marginBottom: 10}}>
-    Opening Time: 8:00 a.m
-    </Text>
-
-    <Text style={{marginBottom: 10}}>
-    Closing Time: 3:00 p.m
-    </Text>
-
-    <Text style={{marginTop: 20, fontWeight:'bold'}}>
-    Friday
-    </Text>
-
-    <Text style={{marginBottom: 10}}>
-    Opening Time: 8:00 a.m
-    </Text>
-
-    <Text style={{marginBottom: 10}}>
-    Closing Time: 1:p.m
-    </Text>
-    <TouchableOpacity 
-    onPress={() => Communications.textWithoutEncoding('' ,'Special')}
-    style={{backgroundColor:'#03A9F4', height:40}}>
-      <Text style={{textAlign:'center', color:'white', marginTop:7}}>SHARE</Text>
-    </TouchableOpacity>
-   
-      </Card>
-    </View>
-     
-            
-          
-        
-      
+    <StackApp/>
     );
   }
 }
- 
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 15,
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    
-    backgroundColor: "#F5FCFF"
-  }
-});
- 
-
-
-
  

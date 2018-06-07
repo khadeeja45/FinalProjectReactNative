@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FlatList, StyleSheet, Text, View , TouchableOpacity } from "react-native";
 import {Card ,Button,Icon} from 'react-native-elements';
-import Communications from 'react-native-communications';
+//import Communications from 'react-native-communications';
 export default class App extends Component {
  
  
@@ -71,11 +71,7 @@ export default class App extends Component {
     <Text style={{marginBottom: 10}}>
     Closing Time: 1:p.m
     </Text>
-    <TouchableOpacity 
-    onPress={() => Communications.textWithoutEncoding('' ,'Special')}
-    style={{backgroundColor:'#03A9F4', height:40}}>
-      <Text style={{textAlign:'center', color:'white', marginTop:7}}>SHARE</Text>
-    </TouchableOpacity>
+   
    
       </Card>
     </View>
@@ -90,6 +86,7 @@ export default class App extends Component {
  
 const styles = StyleSheet.create({
   container: {
+    height:'100%',width:'100%',
     marginTop: 15,
     flex: 1,
     justifyContent: "center",
@@ -98,8 +95,3 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5FCFF"
   }
 });
- 
-
-
-
- 
